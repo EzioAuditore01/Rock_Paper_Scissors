@@ -11,31 +11,52 @@ let isGameOver = false;
 
 
 rockBtn.addEventListener('click', function () {
-    let user = 'rock';
-    let pc = computerPlay();
-    let round = playRound(user, pc)
-    result.textContent = round;
-    game(round);
-    winningScore++;
+    if (!isGameOver) {
+        let user = 'rock';
+        let pc = computerPlay();
+        let round = playRound(user, pc);
+        game(round);
+
+        if (userScore === winningScore || computerScore === winningScore) {
+            isGameOver = true;
+        }
+
+        result.textContent = round;
+    }
+
 
 
 });
 
 
 paperBtn.addEventListener('click', function () {
-    let user = 'paper';
-    let pc = computerPlay();
-    let round = playRound(user, pc)
-    result.textContent = round;
-    game(round);
+    if (!isGameOver) {
+        let user = 'paper';
+        let pc = computerPlay();
+        let round = playRound(user, pc);
+        game(round);
+
+        if (userScore === winningScore || computerScore === winningScore) {
+            isGameOver = true;
+        }
+
+        result.textContent = round;
+    }
 });
 
 scissorsBtn.addEventListener('click', function () {
-    let user = 'scissors';
-    let pc = computerPlay();
-    let round = playRound(user, pc)
-    result.textContent = round;
-    game(round);
+    if (!isGameOver) {
+        let user = 'scissors';
+        let pc = computerPlay();
+        let round = playRound(user, pc);
+        game(round);
+
+        if (userScore === winningScore || computerScore === winningScore) {
+            isGameOver = true;
+        }
+
+        result.textContent = round;
+    }
 });
 
 function computerPlay() {
