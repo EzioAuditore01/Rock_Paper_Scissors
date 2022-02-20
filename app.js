@@ -1,3 +1,43 @@
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+let result = document.querySelector('#result');
+let p1Score = document.querySelector('#p1Score');
+let p2Score = document.querySelector('#p2Score');
+let userScore = 0;
+let computerScore = 0;
+let winningScore = 5;
+let isGameOver = false;
+
+
+rockBtn.addEventListener('click', function () {
+    let user = 'rock';
+    let pc = computerPlay();
+    let round = playRound(user, pc)
+    result.textContent = round;
+    game(round);
+    winningScore++;
+
+
+});
+
+
+paperBtn.addEventListener('click', function () {
+    let user = 'paper';
+    let pc = computerPlay();
+    let round = playRound(user, pc)
+    result.textContent = round;
+    game(round);
+});
+
+scissorsBtn.addEventListener('click', function () {
+    let user = 'scissors';
+    let pc = computerPlay();
+    let round = playRound(user, pc)
+    result.textContent = round;
+    game(round);
+});
+
 function computerPlay() {
 
     let rps = ["Rock", "Paper", "Scissors"];
@@ -53,34 +93,26 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function game() {
-    let userScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        let input = prompt("Enter the option:");
+function game(input) {
 
-        if (playRound(input, computerPlay()) === "You won") {
-            userScore++;
-            console.log("You won")
-            console.log("Your score is: " + userScore);
-            console.log("Computer score is : " + computerScore);
-        } else if (playRound(input, computerPlay()) === "You lost") {
 
-            computerScore++;
-            console.log("You lost")
-            console.log("Your score is: " + userScore);
-            console.log("Computer score is : " + computerScore);
-        } else {
-            console.log("Tie")
-        }
-    }
+    if (input === "You won") {
+        userScore++;
 
-    if (userScore > computerScore) {
-        console.log("You won")
+        console.log("You wons")
+        console.log("Your score is: " + userScore);
+        console.log("Computer score is : " + computerScore);
+    } else if (input === "You lost") {
+
+        computerScore++;
+        console.log("You lost")
+        console.log("Your score is: " + userScore);
+        console.log("Computer score is : " + computerScore);
     } else {
-        console.log("You lost");
+        console.log("Tie")
     }
+
+    p1Score.innerText = userScore;
+    p2Score.innerText = computerScore;
+
 }
-
-game();
-
