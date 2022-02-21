@@ -10,6 +10,7 @@ let winningScore = 5;
 let isGameOver = false;
 
 
+
 rockBtn.addEventListener('click', function () {
     if (!isGameOver) {
         let user = 'rock';
@@ -23,7 +24,6 @@ rockBtn.addEventListener('click', function () {
 
         result.textContent = round;
     }
-
 
 
 });
@@ -77,53 +77,59 @@ function playRound(playerSelection, computerSelection) {
     let computer = computerSelection.toLowerCase();
 
     if (player === "rock" && computer === "rock") {
-        return "Its a draw";
+        return "Its a draw!";
     }
 
     if (player === "rock" && computer === "paper") {
-        return "You lost";
+        win = 2;
+        return "You lost,rock losses to paper!";
     }
 
     if (player === "rock" && computer === "scissors") {
-        return "You won";
+
+
+        return "You won,rock beats scissors!";
     }
 
     if (player === "paper" && computer === "paper") {
-        return "Its a draw";
+        return "Its a draw!";
     }
 
     if (player === "paper" && computer === "rock") {
-        return "You won";
+
+        return "You won,paper beats rock!";
     }
 
     if (player === "paper" && computer === "scissors") {
-        return "You lost";
+
+        return "You lost,papers losses to scissors";
     }
 
     if (player === "scissors" && computer === "scissors") {
-        return "Its a draw";
+        return "Its a draw!";
     }
 
     if (player === "scissors" && computer === "rock") {
-        return "You lost";
+
+        return "You lost,scissors losses to rock!";
     }
 
     if (player === "scissors" && computer === "paper") {
-        return "You won";
+
+        return "You won,scissors beat paper!";
     }
 
 }
 
 function game(input) {
 
-
-    if (input === "You won") {
+    if (input.substring(0, 7) === "You won") {
         userScore++;
 
-        console.log("You wons")
+        console.log("You won")
         console.log("Your score is: " + userScore);
         console.log("Computer score is : " + computerScore);
-    } else if (input === "You lost") {
+    } else if (input.substring(0, 8) === "You lost") {
 
         computerScore++;
         console.log("You lost")
