@@ -4,6 +4,7 @@ const scissorsBtn = document.querySelector('#scissors');
 let result = document.querySelector('#result');
 let p1Score = document.querySelector('#p1Score');
 let p2Score = document.querySelector('#p2Score');
+let reset = document.querySelector('#reset')
 let userScore = 0;
 let computerScore = 0;
 let winningScore = 5;
@@ -135,17 +136,11 @@ function game(input) {
     if (input.substring(0, 7) === "You won") {
         userScore++;
 
-        console.log("You won")
-        console.log("Your score is: " + userScore);
-        console.log("Computer score is : " + computerScore);
+
     } else if (input.substring(0, 8) === "You lost") {
 
         computerScore++;
-        console.log("You lost")
-        console.log("Your score is: " + userScore);
-        console.log("Computer score is : " + computerScore);
-    } else {
-        console.log("Tie")
+
     }
 
     p1Score.innerText = userScore;
@@ -153,9 +148,17 @@ function game(input) {
 
 }
 
-
+reset.addEventListener('click', function () {
+    isGameOver = false;
+    userScore = 0;
+    computerScore = 0;
+    result.textContent = "";
+    p1Score.innerText = 0;
+    p2Score.innerText = 0;
+})
 function setFinalMessage() {
     return userScore > computerScore
         ? (result.textContent = 'You won!')
         : (result.textContent = 'You lost...')
 }
+
