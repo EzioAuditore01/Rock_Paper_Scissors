@@ -20,9 +20,12 @@ rockBtn.addEventListener('click', function () {
 
         if (userScore === winningScore || computerScore === winningScore) {
             isGameOver = true;
+            setFinalMessage();
+        }
+        else {
+            result.textContent = round;
         }
 
-        result.textContent = round;
     }
 
 
@@ -38,9 +41,12 @@ paperBtn.addEventListener('click', function () {
 
         if (userScore === winningScore || computerScore === winningScore) {
             isGameOver = true;
+            setFinalMessage();
+        } else {
+            result.textContent = round;
         }
 
-        result.textContent = round;
+
     }
 });
 
@@ -53,9 +59,12 @@ scissorsBtn.addEventListener('click', function () {
 
         if (userScore === winningScore || computerScore === winningScore) {
             isGameOver = true;
+            setFinalMessage();
         }
 
-        result.textContent = round;
+        else {
+            result.textContent = round;
+        }
     }
 });
 
@@ -142,4 +151,11 @@ function game(input) {
     p1Score.innerText = userScore;
     p2Score.innerText = computerScore;
 
+}
+
+
+function setFinalMessage() {
+    return userScore > computerScore
+        ? (result.textContent = 'You won!')
+        : (result.textContent = 'You lost...')
 }
