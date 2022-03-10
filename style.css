@@ -20,6 +20,8 @@ h1 {
 .footer {
     display: flex;
     justify-content: center;
+    margin-top: auto;
+    margin-bottom: 20px;
 }
 .score {
     display: flex;
@@ -87,10 +89,15 @@ img {
 
 @media all and (max-width: 414px){
     img {
-        max-width: 90px;
-        max-height: 90px;
+        max-width: 85px;
+        max-height: 85px;
         border-radius:5%;;   
     
+    }
+
+
+    body{
+        margin-left: 15px;
     }
 
 }
